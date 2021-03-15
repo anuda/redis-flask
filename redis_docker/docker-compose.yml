@@ -8,7 +8,9 @@ services:
             - ./config/redis.conf:/redis.conf
         command: [ "redis-server", "/redis.conf" ]
     flask_api:
-        build: app
+        build:
+          context: app
+          dockerfile: Dockerfile
         ports:
           - "5000:5000"
 
